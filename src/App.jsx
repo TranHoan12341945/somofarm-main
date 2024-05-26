@@ -1,3 +1,7 @@
+import { Routes, Route, Navigate } from "react-router-dom";
+import Dashboard from "./Admin/layouts/dashboard"; 
+import Auth from "./Admin/layouts/auth";
+
 import { Banner } from "./components/Banner";
 import { Form } from "./components/Banner/Form";
 import { Destaques } from "./components/Destaques";
@@ -7,13 +11,24 @@ import { Header } from "./components/Header";
 
 export function App() {
   return (
-    <div className="bg-gray-50">
-      <Header/>
-      <Banner/>
-      <Destaques/>
-      <GridImages/>
-      <Form />
-      <Footer/>
-    </div>
-  ) 
+    
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Header />
+            <Banner />
+            <Destaques />
+            <GridImages />
+            <Form />
+            <Footer />
+          </>
+        } />
+        <Route path="/dashboard/*" element={<Dashboard />} />
+        <Route path="/auth/*" element={<Auth />} />
+        <Route path="/admin" element={<Navigate to="/dashboard/home" replace />} />
+      </Routes>
+    
+  );
 }
+
+export default App;
