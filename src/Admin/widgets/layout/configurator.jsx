@@ -83,15 +83,15 @@ export function Configurator() {
           color="blue-gray"
           onClick={() => setOpenConfigurator(dispatch, false)}
         >
-          <XMarkIcon strokeWidth={2.5} className="h-5 w-5" />
+          <XMarkIcon strokeWidth={2.5} className="w-5 h-5" />
         </IconButton>
       </div>
-      <div className="py-4 px-6">
+      <div className="px-6 py-4">
         <div className="mb-12">
           <Typography variant="h6" color="blue-gray">
             Sidenav Colors
           </Typography>
-          <div className="mt-3 flex items-center gap-2">
+          <div className="flex items-center gap-2 mt-3">
             {Object.keys(sidenavColors).map((color) => (
               <span
                 key={color}
@@ -112,7 +112,7 @@ export function Configurator() {
           <Typography variant="small" color="gray">
             Choose between 3 different sidenav types.
           </Typography>
-          <div className="mt-3 flex items-center gap-2">
+          <div className="flex items-center gap-2 mt-3">
             <Button
               variant={sidenavType === "dark" ? "gradient" : "outlined"}
               onClick={() => setSidenavType(dispatch, "dark")}
@@ -146,7 +146,7 @@ export function Configurator() {
             />
           </div>
           <hr />
-          <div className="my-8 flex flex-col gap-4">
+          <div className="flex flex-col gap-4 my-8">
             <a
               href="https://www.creative-tim.com/product/material-tailwind-dashboard-react?rel=mtdr"
               target="_black"
@@ -173,7 +173,7 @@ export function Configurator() {
             </a>
           </div>
           <a
-            className="mx-auto flex items-center justify-center gap-2"
+            className="flex items-center justify-center gap-2 mx-auto"
             href="https://github.com/creativetimofficial/material-tailwind-dashboard-react"
             target="_blank"
             rel="noreferrer"
@@ -194,7 +194,7 @@ export function Configurator() {
                   />
                 </svg>
               }
-              className="bg-blue-gray-900 px-4"
+              className="px-4 bg-blue-gray-900"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -210,19 +210,19 @@ export function Configurator() {
           <Typography variant="h6" color="blue-gray">
             Thank you for sharing ❤️
           </Typography>
-          <div className="mt-4 flex justify-center gap-2">
+          <div className="flex justify-center gap-2 mt-4">
             <Button
               variant="gradient"
               className="flex items-center gap-2"
             >
-              <i className="fa-brands fa-twitter text-white" />
+              <i className="text-white fa-brands fa-twitter" />
               Tweet
             </Button>
             <Button
               variant="gradient"
               className="flex items-center gap-2"
             >
-              <i className="fa-brands fa-facebook text-white" />
+              <i className="text-white fa-brands fa-facebook" />
               Share
             </Button>
           </div>

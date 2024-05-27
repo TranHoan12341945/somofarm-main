@@ -8,7 +8,6 @@ import {
   Button,
   IconButton,
   Input,
-  Avatar,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon, BellIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 
@@ -36,7 +35,7 @@ export function Navbar({
   }, []);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {routes.map(({ name, path, icon }, index) => (
         <Typography
           key={`${name}-${path}-${index}`} // Ensure uniqueness by combining name, path, and index
@@ -59,7 +58,7 @@ export function Navbar({
 
   return (
     <MTNavbar className="p-3">
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+      <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
         <Link to="/">
           <Typography
             variant="h6"
@@ -68,14 +67,18 @@ export function Navbar({
             {brandName}
           </Typography>
         </Link>
-        <div className="hidden lg:block flex-1">{navList}</div>
-        <Input type="search" placeholder="Search" className="hidden lg:inline-block mx-4" />
-        <IconButton variant="text" size="sm" className="hidden lg:inline-block">
-          <BellIcon className="h-5 w-5" />
-        </IconButton>
-        <IconButton variant="text" size="sm" className="hidden lg:inline-block">
-          <UserCircleIcon className="h-5 w-5" />
-        </IconButton>
+        <div className="items-center flex-1 hidden gap-4 lg:flex">
+          {navList}
+          <Input type="search" placeholder="Search" className="mx-4 lg:inline-block" />
+        </div>
+        <div className="items-center hidden gap-2 lg:flex">
+          <IconButton variant="text" size="sm">
+            <BellIcon className="w-5 h-5" />
+          </IconButton>
+          <IconButton variant="text" size="sm">
+            <UserCircleIcon className="w-5 h-5" />
+          </IconButton>
+        </div>
         <IconButton
           variant="text"
           size="sm"
@@ -83,26 +86,26 @@ export function Navbar({
           onClick={() => setOpenNav(!openNav)}
         >
           {openNav ? (
-            <XMarkIcon strokeWidth={2} className="h-6 w-6" />
+            <XMarkIcon strokeWidth={2} className="w-6 h-6" />
           ) : (
-            <Bars3Icon strokeWidth={2} className="h-6 w-6" />
+            <Bars3Icon strokeWidth={2} className="w-6 h-6" />
           )}
         </IconButton>
       </div>
       <Collapse open={openNav}>
         <div className="container mx-auto">
           {navList}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mt-4">
             <Input type="search" placeholder="Search" className="w-full" />
             <IconButton variant="text" size="sm">
-              <BellIcon className="h-5 w-5" />
+              <BellIcon className="w-5 h-5" />
             </IconButton>
             <IconButton variant="text" size="sm">
-              <UserCircleIcon className="h-5 w-5" />
+              <UserCircleIcon className="w-5 h-5" />
             </IconButton>
           </div>
           {React.cloneElement(action, {
-            className: "w-full block lg:hidden",
+            className: "w-full block lg:hidden mt-4",
           })}
         </div>
       </Collapse>
