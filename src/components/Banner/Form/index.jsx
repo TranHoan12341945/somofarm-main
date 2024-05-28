@@ -21,9 +21,9 @@ export function Form() {
         </select>
         <select className="px-16 py-2 text-gray-500 border border-gray-300 rounded bg-gray-50 sm:px-3">
           <option value="">Chọn năm</option>
-          {Array.from({ length: 100 }, (_, i) => (
-            <option key={2023 - i} value={2023 - i}>
-              {2023 - i}
+          {Array.from({ length: 77 }, (_, i) => (
+            <option key={2024 + i} value={2024 + i}>
+              {2024 + i}
             </option>
           ))}
         </select>
@@ -48,9 +48,9 @@ export function Form() {
         </select>
         <select className="px-16 py-2 text-gray-500 border border-gray-300 rounded bg-gray-50 sm:px-3">
           <option value="">Chọn năm</option>
-          {Array.from({ length: 100 }, (_, i) => (
-            <option key={2023 - i} value={2023 - i}>
-              {2023 - i}
+          {Array.from({ length: 77 }, (_, i) => (
+            <option key={2024 + i} value={2024 + i}>
+              {2024 + i}
             </option>
           ))}
         </select>

@@ -1,4 +1,3 @@
-
 export function Header(){
   return (
     <div>
@@ -36,6 +35,22 @@ export function Header(){
               className="text-sm text-gray-600 hover:text-gray-800 hover:underline"
             >
               Liên lạc
+            </a>
+          </li>
+          <li>
+            <a
+              href="/dashboard/home"
+              className="text-sm text-gray-600 hover:text-gray-800 hover:underline"
+            >
+              Admin
+            </a>
+          </li>
+          <li>
+            <a
+              href="/auth/sign-in"
+              className="text-sm text-gray-600 hover:text-gray-800 hover:underline"
+            >
+              Sign in
             </a>
           </li>
         </ul>
