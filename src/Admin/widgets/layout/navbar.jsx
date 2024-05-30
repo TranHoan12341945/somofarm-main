@@ -12,7 +12,7 @@ import {
 import { Bars3Icon, XMarkIcon, BellIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 
 export function Navbar({
-  brandName = "Material Tailwind React",
+  brandName = "SOMOFARM",
   routes,
   action = (
     <a

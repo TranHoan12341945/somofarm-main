@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { Typography } from "@material-tailwind/react";
-import { HeartIcon } from "@heroicons/react/24/solid";
+// import { HeartIcon } from "@heroicons/react/24/solid";
 
 export function Footer({
-  brandName = "Creative Tim",
-  brandLink = "https://www.creative-tim.com",
+  // brandName = "Creative Tim",
+  // brandLink = "https://www.creative-tim.com",
   routes = [
     { name: "Somofarm", path: "https://www.facebook.com/" },
     { name: "About Us", path: "https://www.facebook.com/" },

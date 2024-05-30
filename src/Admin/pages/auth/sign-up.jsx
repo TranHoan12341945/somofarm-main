@@ -10,20 +10,20 @@ import { Link } from "react-router-dom";
 
 export function SignUp() {
   return (
-    <section className="m-8 flex">
-            <div className="w-2/5 h-full hidden lg:block">
+    <section className="flex m-8">
+            <div className="hidden w-2/5 h-full lg:block">
         <img
           src="/img/pattern.png"
-          className="h-full w-full object-cover rounded-3xl"
+          className="object-cover w-full h-full rounded-3xl"
         />
       </div>
-      <div className="w-full lg:w-3/5 flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-full lg:w-3/5">
         <div className="text-center">
-          <Typography variant="h2" className="font-bold mb-4">Join Us Today</Typography>
+          <Typography variant="h2" className="mb-4 font-bold">Join Us Today</Typography>
           <Typography variant="paragraph" color="blue-gray" className="text-lg font-normal">Enter your email and password to register.</Typography>
         </div>
-        <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
-          <div className="mb-1 flex flex-col gap-6">
+        <form className="max-w-screen-lg mx-auto mt-8 mb-2 w-80 lg:w-1/2">
+          <div className="flex flex-col gap-6 mb-1">
             <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
               Your email
             </Typography>
@@ -36,7 +36,7 @@ export function SignUp() {
               }}
             />
           </div>
-          <Checkbox
+          {/* <Checkbox
             label={
               <Typography
                 variant="small"
@@ -46,20 +46,20 @@ export function SignUp() {
                 I agree the&nbsp;
                 <a
                   href="#"
-                  className="font-normal text-black transition-colors hover:text-gray-900 underline"
+                  className="font-normal text-black underline transition-colors hover:text-gray-900"
                 >
                   Terms and Conditions
                 </a>
               </Typography>
             }
             containerProps={{ className: "-ml-2.5" }}
-          />
+          /> */}
           <Button className="mt-6" fullWidth>
             Register Now
           </Button>
 
-          <div className="space-y-4 mt-8">
-            <Button size="lg" color="white" className="flex items-center gap-2 justify-center shadow-md" fullWidth>
+          <div className="mt-8 space-y-4">
+            <Button size="lg" color="white" className="flex items-center justify-center gap-2 shadow-md" fullWidth>
               <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_1156_824)">
                   <path d="M16.3442 8.18429C16.3442 7.64047 16.3001 7.09371 16.206 6.55872H8.66016V9.63937H12.9813C12.802 10.6329 12.2258 11.5119 11.3822 12.0704V14.0693H13.9602C15.4741 12.6759 16.3442 10.6182 16.3442 8.18429Z" fill="#4285F4" />
@@ -75,14 +75,14 @@ export function SignUp() {
               </svg>
               <span>Sign in With Google</span>
             </Button>
-            <Button size="lg" color="white" className="flex items-center gap-2 justify-center shadow-md" fullWidth>
+            {/* <Button size="lg" color="white" className="flex items-center justify-center gap-2 shadow-md" fullWidth>
               <img src="/img/twitter-logo.svg" height={24} width={24} alt="" />
               <span>Sign in With Twitter</span>
-            </Button>
+            </Button> */}
           </div>
-          <Typography variant="paragraph" className="text-center text-blue-gray-500 font-medium mt-4">
+          <Typography variant="paragraph" className="mt-4 font-medium text-center text-blue-gray-500">
             Already have an account?
-            <Link to="/auth/sign-in" className="text-gray-900 ml-1">Sign in</Link>
+            <Link to="/auth/sign-in" className="ml-1 text-gray-900">Sign in</Link>
           </Typography>
         </form>
 
