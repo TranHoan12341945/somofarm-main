@@ -7,7 +7,6 @@ import {
   Typography,
   Button,
   IconButton,
-  Input,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon, BellIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 
@@ -69,7 +68,6 @@ export function Navbar({
         </Link>
         <div className="items-center flex-1 hidden gap-4 lg:flex">
           {navList}
-          <Input type="search" placeholder="Search" className="mx-4 lg:inline-block" />
         </div>
         <div className="items-center hidden gap-2 lg:flex">
           <IconButton variant="text" size="sm">
@@ -96,7 +94,6 @@ export function Navbar({
         <div className="container mx-auto">
           {navList}
           <div className="flex items-center gap-2 mt-4">
-            <Input type="search" placeholder="Search" className="w-full" />
             <IconButton variant="text" size="sm">
               <BellIcon className="w-5 h-5" />
             </IconButton>

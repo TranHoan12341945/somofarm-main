@@ -1,3 +1,4 @@
+// src/Admin/widgets/layout/dashboard-navbar.jsx
 import { useLocation, Link } from "react-router-dom";
 import {
   Navbar,
@@ -24,7 +25,7 @@ import {
   useMaterialTailwindController,
   setOpenConfigurator,
   setOpenSidenav,
-} from "@/context";
+} from "../../context"; // Make sure this import path is correct
 
 export function DashboardNavbar() {
   const [controller, dispatch] = useMaterialTailwindController();

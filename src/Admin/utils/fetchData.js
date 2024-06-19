@@ -26,3 +26,28 @@ export const updateRoomData = async (updatedRoom) => {
     console.error("Failed to update room data:", error);
   }
 };
+
+export const deleteRoomData = async (roomID) => {
+  try {
+    await fetch(`${API_URL}/rooms/${roomID}`, {
+      method: 'DELETE',
+    });
+  } catch (error) {
+    console.error("Failed to delete room data:", error);
+  }
+};
+
+export const createRoomData = async (newRoom) => {
+  try {
+    const response = await fetch(`${API_URL}/rooms`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newRoom),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error("Failed to create room data:", error);
+  }
+};

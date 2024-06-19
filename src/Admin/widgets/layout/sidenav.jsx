@@ -9,7 +9,7 @@ import {
 } from "@material-tailwind/react";
 import { useMaterialTailwindController, setOpenSidenav } from "../../context";
 
-export function Sidenav({ brandImg = "/img/logo-ct.png", brandName = "Somofarm", routes }) {
+export function Sidenav({ brandImg = "/path/to/new-logo.png", brandName = "Somofarm", routes }) {
   const [controller, dispatch] = useMaterialTailwindController();
   const { sidenavColor, sidenavType, openSidenav } = controller;
   const sidenavTypes = {
@@ -18,7 +18,6 @@ export function Sidenav({ brandImg = "/img/logo-ct.png", brandName = "Somofarm",
     transparent: "bg-transparent",
   };
 
-  // Ensure sidenavColor is a valid value
   const validSidenavColor = [
     "white", "black", "blue-gray", "gray", "brown", "deep-orange", "orange", 
     "amber", "yellow", "lime", "light-green", "green", "teal", "cyan", 
