@@ -1,8 +1,12 @@
-export function Header(){
+import logoSomo from "../../assets/img/logo.png"; // Adjust the path according to your project structure
+
+export function Header() {
   return (
     <div>
       <header className="container flex items-center justify-between h-24 max-w-6xl px-4 mx-auto">
-        <h2 className="font-black text-gray-400">LOGO</h2>
+        <a href="/">
+          <img src={logoSomo} alt="Logo" className="h-12" />
+        </a>
 
         <ul className="hidden gap-3 sm:flex">
           <li>

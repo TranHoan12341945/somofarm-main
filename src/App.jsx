@@ -8,9 +8,11 @@ import { Destaques } from "./components/Destaques";
 import { Footer } from "./components/Footer";
 import { GridImages } from "./components/GridImages";
 import { Header } from "./components/Header";
-import RoomList from "./components/Roomlist";
+// import RoomList from "./components/Roomlist";
 import ManageRooms from "./Admin/pages/dashboard/tables"; // Adjusted path
 import BookedRooms from "./Admin/pages/dashboard/bookedrooms";
+import CustomerManagement from "./Admin/pages/dashboard/CustomerManagement"; // Import mới
+import StaffManagement from "./Admin/pages/dashboard/StaffManagement"; // Import mới
 
 export function App() {
   return (
@@ -29,9 +31,11 @@ export function App() {
       <Route path="/auth/*" element={<Auth />} />
       <Route path="/auth/sign-in" element={<SignIn />} />
       <Route path="/admin" element={<Navigate to="/dashboard/home" replace />} />
-      <Route path="/rooms" element={<RoomList />} />
+      {/* <Route path="/rooms" element={<RoomList />} /> */}
       <Route path="/manage-rooms" element={<ManageRooms />} />
-      <Route path="/booked-rooms" element={<BookedRooms />} />
+      {/* <Route path="/booked-rooms" element={<BookedRooms />} /> */}
+      <Route path="/manage-customers" element={<CustomerManagement />} /> {/* Thêm route mới */}
+      <Route path="/manage-staff" element={<StaffManagement />} /> {/* Thêm route mới */}
     </Routes>
   );
 }

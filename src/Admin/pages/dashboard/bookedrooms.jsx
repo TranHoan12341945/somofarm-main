@@ -12,20 +12,19 @@ import {
   DialogFooter,
   Input
 } from "@material-tailwind/react";
-import { fetchRoomsData, updateRoomData, deleteRoomData } from "../../utils/fetchData";
-import DashboardNavbar from "../../widgets/layout/dashboard-navbar";
+import { fetchRoomsData, updateRoomData } from "../../utils/fetchData";
+import DashboardNavbar from "../../widgets/layout/dashboard-navbar"; // Đảm bảo đúng đường dẫn
 
 export function BookedRooms() {
   const [roomsData, setRoomsData] = useState([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [updatedRoom, setUpdatedRoom] = useState({});
-  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const getData = async () => {
       const data = await fetchRoomsData();
-      const bookedRooms = data.filter(room => room.roomStatus === 'Booked');
+      const bookedRooms = data.filter(room => room.roomStatus === '(Booked)');
       setRoomsData(bookedRooms);
     };
 
@@ -57,38 +56,30 @@ export function BookedRooms() {
     setIsDialogOpen(false);
   };
 
-  const handleDelete = async (roomID) => {
-    // Remove room data locally
+  const handleDelete = (roomID) => {
     const updatedRoomsData = roomsData.filter(room => room.roomID !== roomID);
     setRoomsData(updatedRoomsData);
-
-    // Send request to delete room data on the server
-    await deleteRoomData(roomID);
   };
 
-  const filteredRooms = roomsData.filter(room =>
-    room.roomName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    room.areaDetails.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
-    <div>
-      <DashboardNavbar onSearch={(e) => setSearchTerm(e.target.value)} />
-      <div className="mt-12 mb-8 flex flex-col gap-12">
+    <>
+      <DashboardNavbar />
+
+      <div className="flex flex-col gap-12 mt-12 mb-8">
         <Card>
-          <CardHeader className="mb-8 p-6 bg-gray-800 text-white rounded-t-xl flex justify-between items-center">
+          <CardHeader className="flex items-center justify-between p-6 mb-8 text-white bg-gray-800 rounded-t-xl">
             <Typography variant="h6" color="white">
               Booked Rooms
             </Typography>
           </CardHeader>
-          <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
+          <CardBody className="px-0 pt-0 pb-2 overflow-x-scroll">
             <table className="w-full min-w-[640px] table-auto">
               <thead>
                 <tr>
-                  {["Phòng", "Địa điểm", "Giá", "Trạng thái", "Hành động"].map((el) => (
+                  {["Phòng", "Mô tả", "Giá", "Trạng thái", "Hành động"].map((el) => (
                     <th
                       key={el}
-                      className="border-b border-blue-gray-50 py-3 px-5 text-left"
+                      className="px-5 py-3 text-left border-b border-blue-gray-50"
                     >
                       <Typography
                         variant="small"
@@ -101,9 +92,9 @@ export function BookedRooms() {
                 </tr>
               </thead>
               <tbody>
-                {filteredRooms.length === 0 ? (
+                {roomsData.length === 0 ? (
                   <tr>
-                    <td colSpan="5" className="text-center py-3 px-5">
+                    <td colSpan="5" className="px-5 py-3 text-center">
                       <Typography
                         variant="small"
                         color="blue-gray"
@@ -114,7 +105,7 @@ export function BookedRooms() {
                     </td>
                   </tr>
                 ) : (
-                  filteredRooms.map(
+                  roomsData.map(
                     ({ roomID, roomName, areaDetails, roomPrice, roomStatus }, key) => {
                       const className = `py-3 px-5 ${
                         key === roomsData.length - 1
@@ -153,7 +144,7 @@ export function BookedRooms() {
                           <td className={className}>
                             <Chip
                               variant="gradient"
-                              color={roomStatus === "Available" ? "green" : "red"}
+                              color={roomStatus === "(Available)" ? "green" : "red"}
                               value={roomStatus}
                               className="py-0.5 px-2 text-[11px] font-medium w-fit"
                             />
@@ -183,12 +174,18 @@ export function BookedRooms() {
           <DialogBody>
             <div className="flex flex-col gap-4">
               <Input
+                label="ID phòng"
+                value={updatedRoom.roomID || ''}
+                onChange={(e) => setUpdatedRoom({ ...updatedRoom, roomID: e.target.value })}
+                disabled={!!selectedRoom}
+              />
+              <Input
                 label="Tên phòng"
                 value={updatedRoom.roomName || ''}
                 onChange={(e) => setUpdatedRoom({ ...updatedRoom, roomName: e.target.value })}
               />
               <Input
-                label="Địa điểm"
+                label="Mô tả"
                 value={updatedRoom.areaDetails || ''}
                 onChange={(e) => setUpdatedRoom({ ...updatedRoom, areaDetails: e.target.value })}
               />
@@ -214,7 +211,7 @@ export function BookedRooms() {
           </DialogFooter>
         </Dialog>
       </div>
-    </div>
+    </>
   );
 }
 
