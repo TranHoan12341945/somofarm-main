@@ -16,6 +16,8 @@ import {
   TvIcon,
 } from '@heroicons/react/24/solid';
 import RoomCard from '../../components/RoomCard/RoomCard';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 const roomInfo = {
   id: 1,
@@ -64,6 +66,7 @@ const otherRoomInfo = [
 const DetailPage = () => {
   return (
     <div className='w-full'>
+      <Header />
       <img src={roomInfo.imgUrl} alt='Room Detail' className='w-full' />
       <div className='flex justify-center gap-8 my-8'>
         <div className='w-1/2'>
@@ -202,6 +205,7 @@ const DetailPage = () => {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 };
