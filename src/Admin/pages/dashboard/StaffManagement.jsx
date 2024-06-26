@@ -11,28 +11,11 @@ export function StaffManagement() {
   const [staffData, setStaffData] = useState([]);
 
   useEffect(() => {
-    // Giả lập dữ liệu nhân viên
-    const fakeData = [
-      {
-        name: "Nguyen Van A",
-        dateOfBirth: "01/01/1980",
-        gender: "Nam",
-        position: "Quản lý",
-      },
-      {
-        name: "Tran Thi B",
-        dateOfBirth: "15/05/1985",
-        gender: "Nữ",
-        position: "Nhân viên lễ tân",
-      },
-      {
-        name: "Le Van C",
-        dateOfBirth: "20/09/1990",
-        gender: "Nam",
-        position: "Bảo vệ",
-      }
-    ];
-    setStaffData(fakeData);
+    // Lấy dữ liệu từ API
+    fetch('https://jsonserver-two.vercel.app/account?fbclid=IwZXh0bgNhZW0CMTAAAR2wWVScZ7wXkLhSnLhcL4rzs4YJU8RJil1gU90_R4oSP5KZlq3YpuBAYhA_aem_1p2ZmE-pgDTAkToV2a1H6g')
+      .then(response => response.json())
+      .then(data => setStaffData(data.account))
+      .catch(error => console.error('Error fetching data:', error));
   }, []);
 
   return (
@@ -50,7 +33,7 @@ export function StaffManagement() {
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["Tên", "Ngày sinh", "Giới tính", "Vị trí", "Hành động"].map((el) => (
+                {["Username", "Password", "Role", "Hành động"].map((el) => (
                   <th
                     key={el}
                     className="px-5 py-3 text-left border-b border-blue-gray-50"
@@ -68,7 +51,7 @@ export function StaffManagement() {
             <tbody>
               {staffData.length === 0 ? (
                 <tr>
-                  <td colSpan="5" className="px-5 py-3 text-center">
+                  <td colSpan="4" className="px-5 py-3 text-center">
                     <Typography
                       variant="small"
                       color="blue-gray"
@@ -80,7 +63,7 @@ export function StaffManagement() {
                 </tr>
               ) : (
                 staffData.map(
-                  ({ name, dateOfBirth, gender, position }, key) => {
+                  ({ username, password, role }, key) => {
                     const className = `py-3 px-5 ${
                       key === staffData.length - 1
                         ? ""
@@ -95,7 +78,7 @@ export function StaffManagement() {
                             color="blue-gray"
                             className="font-semibold"
                           >
-                            {name}
+                            {username}
                           </Typography>
                         </td>
                         <td className={className}>
@@ -104,7 +87,7 @@ export function StaffManagement() {
                             color="blue-gray"
                             className="font-semibold"
                           >
-                            {dateOfBirth}
+                            {password}
                           </Typography>
                         </td>
                         <td className={className}>
@@ -113,16 +96,7 @@ export function StaffManagement() {
                             color="blue-gray"
                             className="font-semibold"
                           >
-                            {gender}
-                          </Typography>
-                        </td>
-                        <td className={className}>
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-semibold"
-                          >
-                            {position}
+                            {role}
                           </Typography>
                         </td>
                         <td className={className}>

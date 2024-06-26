@@ -3,7 +3,7 @@ import Dashboard from "./Admin/layouts/dashboard";
 import Auth from "./Admin/layouts/auth";
 import SignIn from "./Admin/pages/auth/sign-in";
 import { Banner } from "./components/Banner";
-import { Form } from "./components/Banner/Form";
+// import { Form } from "./components/Banner/Form";
 import { Destaques } from "./components/Destaques";
 import { Footer } from "./components/Footer";
 import { GridImages } from "./components/GridImages";
@@ -13,6 +13,10 @@ import ManageRooms from "./Admin/pages/dashboard/tables"; // Adjusted path
 import BookedRooms from "./Admin/pages/dashboard/bookedrooms";
 import CustomerManagement from "./Admin/pages/dashboard/CustomerManagement"; // Import mới
 import StaffManagement from "./Admin/pages/dashboard/StaffManagement"; // Import mới
+import RoomListPage from './pages/RoomListPage/RoomListPage';
+import CancelBookingPage from './pages/CancelBookingPage/CancelBookingPage';
+import DetailPage from './pages/DetailPage/DetailPage';
+import SearchRoomPage from './pages/SearchRoomPage/SearchRoomPage';
 
 export function App() {
   return (
@@ -23,16 +27,20 @@ export function App() {
           <Banner />
           <Destaques />
           <GridImages />
-          <Form />
+          {/* <Form /> */}
           <Footer />
         </>
       } />
       <Route path="/dashboard/*" element={<Dashboard />} />
       <Route path="/auth/*" element={<Auth />} />
       <Route path="/auth/sign-in" element={<SignIn />} />
-      <Route path="/admin" element={<Navigate to="/dashboard/home" replace />} />
+      <Route path="/admin" element={<Navigate to="/dashboard/manage-rooms" replace />} />
       {/* <Route path="/rooms" element={<RoomList />} /> */}
       <Route path="/manage-rooms" element={<ManageRooms />} />
+      <Route path='/room-list' element={<RoomListPage />} />
+      <Route path='/cancel-booking' element={<CancelBookingPage />} />
+      <Route path='/room-detail' element={<DetailPage />} />
+      <Route path='/search-room' element={<SearchRoomPage />} />
       {/* <Route path="/booked-rooms" element={<BookedRooms />} /> */}
       <Route path="/manage-customers" element={<CustomerManagement />} /> {/* Thêm route mới */}
       <Route path="/manage-staff" element={<StaffManagement />} /> {/* Thêm route mới */}

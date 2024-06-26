@@ -12,7 +12,7 @@ import {
 
 import Home from "./Admin/pages/dashboard/home";
 import Profile from "./Admin/pages/dashboard/profile";
-// import Tables from "./Admin/pages/dashboard/tables";
+import Tables from "./Admin/pages/dashboard/tables";
 import Notifications from "./Admin/pages/dashboard/notifications";
 import SignIn from "./Admin/pages/auth/sign-in";
 import SignUp from "./Admin/pages/auth/sign-up";

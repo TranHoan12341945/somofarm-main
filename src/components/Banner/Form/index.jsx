@@ -1,9 +1,9 @@
 export function Form() {
   return (
     <form className="flex flex-col items-center justify-center gap-6 py-10 sm:flex-row">
-      <div className="flex flex-col items-center p-4 border border-gray-300 rounded-md sm:flex-row sm:gap-3">
-        <label className="block mb-2 font-bold text-white sm:mb-0">Ngày nhận phòng</label>
-        <select className="px-16 py-2 text-gray-500 border border-gray-300 rounded bg-gray-50 sm:px-3">
+      <div className="flex flex-col items-center p-4 border border-gray-300 rounded-md sm:flex-row sm:gap-3 bg-gray-100">
+        <label className="block mb-2 font-bold text-gray-800 sm:mb-0">Ngày nhận phòng</label>
+        <select className="px-3 py-2 text-gray-800 border border-gray-300 rounded bg-white sm:px-3">
           <option value="">Chọn ngày</option>
           {Array.from({ length: 31 }, (_, i) => (
             <option key={i + 1} value={i + 1}>
@@ -11,7 +11,7 @@ export function Form() {
             </option>
           ))}
         </select>
-        <select className="px-16 py-2 text-gray-500 border border-gray-300 rounded bg-gray-50 sm:px-3">
+        <select className="px-3 py-2 text-gray-800 border border-gray-300 rounded bg-white sm:px-3">
           <option value="">Chọn tháng</option>
           {Array.from({ length: 12 }, (_, i) => (
             <option key={i + 1} value={i + 1}>
@@ -19,7 +19,7 @@ export function Form() {
             </option>
           ))}
         </select>
-        <select className="px-16 py-2 text-gray-500 border border-gray-300 rounded bg-gray-50 sm:px-3">
+        <select className="px-3 py-2 text-gray-800 border border-gray-300 rounded bg-white sm:px-3">
           <option value="">Chọn năm</option>
           {Array.from({ length: 77 }, (_, i) => (
             <option key={2024 + i} value={2024 + i}>
@@ -28,9 +28,9 @@ export function Form() {
           ))}
         </select>
       </div>
-      <div className="flex flex-col items-center p-4 border border-gray-300 rounded-md sm:flex-row sm:gap-3">
-        <label className="block mb-2 font-bold text-white sm:mb-0">Ngày trả phòng</label>
-        <select className="px-16 py-2 text-gray-500 border border-gray-300 rounded bg-gray-50 sm:px-3">
+      <div className="flex flex-col items-center p-4 border border-gray-300 rounded-md sm:flex-row sm:gap-3 bg-gray-100">
+        <label className="block mb-2 font-bold text-gray-800 sm:mb-0">Ngày trả phòng</label>
+        <select className="px-3 py-2 text-gray-800 border border-gray-300 rounded bg-white sm:px-3">
           <option value="">Chọn ngày</option>
           {Array.from({ length: 31 }, (_, i) => (
             <option key={i + 1} value={i + 1}>
@@ -38,7 +38,7 @@ export function Form() {
             </option>
           ))}
         </select>
-        <select className="px-16 py-2 text-gray-500 border border-gray-300 rounded bg-gray-50 sm:px-3">
+        <select className="px-3 py-2 text-gray-800 border border-gray-300 rounded bg-white sm:px-3">
           <option value="">Chọn tháng</option>
           {Array.from({ length: 12 }, (_, i) => (
             <option key={i + 1} value={i + 1}>
@@ -46,7 +46,7 @@ export function Form() {
             </option>
           ))}
         </select>
-        <select className="px-16 py-2 text-gray-500 border border-gray-300 rounded bg-gray-50 sm:px-3">
+        <select className="px-3 py-2 text-gray-800 border border-gray-300 rounded bg-white sm:px-3">
           <option value="">Chọn năm</option>
           {Array.from({ length: 77 }, (_, i) => (
             <option key={2024 + i} value={2024 + i}>
@@ -55,12 +55,12 @@ export function Form() {
           ))}
         </select>
       </div>
-      <button className="flex items-center px-16 py-2 font-medium text-yellow-900 bg-yellow-400 rounded sm:px-3">
+      <button className="flex items-center px-5 py-2 font-medium text-white bg-yellow-600 rounded-md hover:bg-yellow-700 transition duration-300 ease-in-out">
         <svg
-          className="w-4 h-4 mr-2"
+          className="w-5 h-5 mr-2"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="2"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
