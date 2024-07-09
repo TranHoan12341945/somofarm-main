@@ -17,6 +17,7 @@ import RoomListPage from './pages/RoomListPage/RoomListPage';
 import CancelBookingPage from './pages/CancelBookingPage/CancelBookingPage';
 import DetailPage from './pages/DetailPage/DetailPage';
 import SearchRoomPage from './pages/SearchRoomPage/SearchRoomPage';
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
 export function App() {
   return (
@@ -44,6 +45,7 @@ export function App() {
       {/* <Route path="/booked-rooms" element={<BookedRooms />} /> */}
       <Route path="/manage-customers" element={<CustomerManagement />} /> {/* Thêm route mới */}
       <Route path="/manage-staff" element={<StaffManagement />} /> {/* Thêm route mới */}
+      <Route path="/about-us" element={<AboutUsPage />} />
     </Routes>
   );
 }
