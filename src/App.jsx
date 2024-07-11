@@ -18,6 +18,8 @@ import CancelBookingPage from './pages/CancelBookingPage/CancelBookingPage';
 import DetailPage from './pages/DetailPage/DetailPage';
 import SearchRoomPage from './pages/SearchRoomPage/SearchRoomPage';
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import BookingPage from "./pages/BookingPage/BookingPage";
+import PaymentPage from "./pages/PaymentPage/PaymentPage.jsx";
 
 export function App() {
   return (
@@ -46,6 +48,8 @@ export function App() {
       <Route path="/manage-customers" element={<CustomerManagement />} /> {/* Thêm route mới */}
       <Route path="/manage-staff" element={<StaffManagement />} /> {/* Thêm route mới */}
       <Route path="/about-us" element={<AboutUsPage />} />
+      <Route path="/booking" element={<BookingPage />} />
+      <Route path="/payment" element={<PaymentPage />} />
     </Routes>
   );
 }
