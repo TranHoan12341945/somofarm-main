@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { axiosInstance } from '../../configs/axiosInstance';
@@ -13,12 +13,26 @@ const BookingPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [dateIn, setDateIn] = useState('');
   const [dateOut, setDateOut] = useState('');
+  const [errors, setErrors] = useState({});
 
   const search = location.search;
   const roomID = search.slice(8);
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!firstName) newErrors.firstName = 'Họ là bắt buộc';
+    if (!lastName) newErrors.lastName = 'Tên là bắt buộc';
+    if (!email) newErrors.email = 'Email là bắt buộc';
+    if (!phoneNumber) newErrors.phoneNumber = 'Số điện thoại là bắt buộc';
+    if (!dateIn) newErrors.dateIn = 'Ngày nhận phòng là bắt buộc';
+    if (!dateOut) newErrors.dateOut = 'Ngày trả phòng là bắt buộc';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleBooking = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
 
     try {
       const postInfo = await axiosInstance.post('/bookings', {
@@ -117,6 +131,7 @@ const BookingPage = () => {
                       setFirstName(e.target.value);
                     }}
                   />
+                  {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
                 </div>
                 <div className='mb-4'>
                   <label className='block mb-1 font-bold' htmlFor='lastName'>
@@ -132,6 +147,7 @@ const BookingPage = () => {
                       setLastName(e.target.value);
                     }}
                   />
+                  {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
                 </div>
                 <div className='mb-4'>
                   <label className='block mb-1 font-bold' htmlFor='phoneNumber'>
@@ -147,6 +163,7 @@ const BookingPage = () => {
                       setPhoneNumber(e.target.value);
                     }}
                   />
+                  {errors.phoneNumber && <p className="text-red-500 text-sm">{errors.phoneNumber}</p>}
                 </div>
                 <div className='mb-4'>
                   <label className='block mb-1 font-bold' htmlFor='email'>
@@ -162,6 +179,7 @@ const BookingPage = () => {
                       setEmail(e.target.value);
                     }}
                   />
+                  {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                 </div>
                 <div className='mb-4'>
                   <label className='block mb-1 font-bold' htmlFor='dateIn'>
@@ -177,6 +195,7 @@ const BookingPage = () => {
                       setDateIn(e.target.value);
                     }}
                   />
+                  {errors.dateIn && <p className="text-red-500 text-sm">{errors.dateIn}</p>}
                 </div>
                 <div className='mb-4'>
                   <label className='block mb-1 font-bold' htmlFor='dateOut'>
@@ -192,6 +211,7 @@ const BookingPage = () => {
                       setDateOut(e.target.value);
                     }}
                   />
+                  {errors.dateOut && <p className="text-red-500 text-sm">{errors.dateOut}</p>}
                 </div>
                 <h2 className='mb-2 text-xl font-bold'>Chọn cách thanh toán</h2>
                 <div className='mb-4'>
