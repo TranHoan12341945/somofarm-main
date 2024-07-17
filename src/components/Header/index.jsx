@@ -55,19 +55,19 @@ export function Header() {
                       Đặt phòng
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link
                       to="/cancellation"
                       className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
                     >
                       Hủy phòng
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               )}
               <span className="absolute left-0 bottom-0 w-0 h-1 bg-green-600 transition-all duration-300 group-hover:w-full"></span>
             </li>
-            <li className="relative group">
+            {/* <li className="relative group">
               <Link
                 to="/admin"
                 className="text-sm font-semibold text-gray-800 hover:text-green-600 transition duration-300"
@@ -84,7 +84,7 @@ export function Header() {
                 Sign in
               </Link>
               <span className="absolute left-0 bottom-0 w-0 h-1 bg-green-600 transition-all duration-300 group-hover:w-full"></span>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </header>
