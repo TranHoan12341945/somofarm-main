@@ -23,7 +23,7 @@ export function GridImages() {
             <img src={hotel2} alt="hotel" className='object-cover w-full h-full overflow-hidden rounded-lg transform transition-transform duration-300 hover:scale-105' />
           </div>
           <div className='relative'>
-            <p className='absolute bottom-0 z-10 pb-4 pl-4 font-bold text-white'>Phòng vip hơn</p>
+            <p className='absolute bottom-0 z-10 pb-4 pl-4 font-bold text-white'>Phòng Cánh đồng sen</p>
             <img src={shadow} alt="sombra" className='absolute bottom-0 left-0 right-0 h-20' />
             <img src={hotel3} alt="hotel" className='object-cover w-full h-full overflow-hidden rounded-lg transform transition-transform duration-300 hover:scale-105' />
           </div>

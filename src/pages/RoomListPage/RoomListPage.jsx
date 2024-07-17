@@ -51,56 +51,49 @@ const RoomListPage = () => {
       <Header />
       <img src='/img/home-decor-4.jpeg' alt='Room List' className='w-full' />
       <div className='flex flex-col justify-center gap-4 absolute -translate-y-1/2 -translate-x-1/2 left-1/2 w-[1000px] h-80 rounded-3xl bg-gray-100 shadow-md'>
-        <div className='mx-24 border border-gray-500 rounded-xl flex justify-center items-center h-12 bg-white'>
-          <MagnifyingGlassIcon className='size-6 px-4 h-full w-16' />
-          <input
-            type='text'
-            placeholder='Nhập loại phòng bạn cần tìm'
-            className='w-full h-full outline-none px-4 rounded-e-xl text-lg'
-          />
-        </div>
-        <div className='flex mx-24 justify-between'>
-          <div className='flex justify-between items-center border border-gray-500 rounded-xl h-12 w-full bg-white'>
-            <input
-              type='date'
-              className='w-[45%] h-full outline-none px-4 rounded-s-xl'
-              value={dateFrom}
-              onChange={(e) => {
-                setDateFrom(e.target.value);
-              }}
-            />
-            <hr className='w-px h-4/5 bg-gray-500' />
-            <input
-              type='date'
-              className='w-[45%] h-full outline-none px-4 rounded-e-xl'
-              value={dateTo}
-              onChange={(e) => {
-                setDateTo(e.target.value);
-              }}
-            />
-          </div>
-          {/* <div className='flex items-center h-12 w-1/3 border border-gray-500 rounded-xl bg-white'>
-            <select
-              className='w-full h-full rounded-xl outline-none px-2'
-              defaultValue={0}
-            >
-              <option value={0}>Lựa chọn kiểu phòng</option>
-              <option value={2}>2 người</option>
-              <option value={4}>4 người</option>
-            </select>
-          </div> */}
-        </div>
-        <div className='flex justify-center'>
-          <button
-            className='h-12 bg-blue-400 w-1/5 text-white text-xl rounded-xl mt-4'
-            onClick={() => {
-              getRoomList();
-            }}
-          >
-            TÌM KIẾM
-          </button>
-        </div>
-      </div>
+  {/* <div className='mx-24 border border-gray-500 rounded-xl flex justify-center items-center h-12 bg-white'> */}
+    {/* <MagnifyingGlassIcon className='size-6 px-4 h-full w-16' /> */}
+    {/* <input
+      type='text'
+      placeholder='Nhập loại phòng bạn cần tìm'
+      className='w-full h-full outline-none px-4 rounded-e-xl text-lg'
+    /> */}
+  {/* </div> */}
+  <div className='flex mx-24 justify-between'>
+    <div className='flex flex-col w-[45%]'>
+      <label className='px-4 pt-2 text-sm text-gray-700'>Ngày check-in</label>
+      <input
+        type='date'
+        className='w-full h-full outline-none px-4 rounded-s-xl border border-gray-500'
+        value={dateFrom}
+        onChange={(e) => {
+          setDateFrom(e.target.value);
+        }}
+      />
+    </div>
+    <hr className='w-px h-4/5 bg-gray-500 self-center' />
+    <div className='flex flex-col w-[45%]'>
+      <label className='px-4 pt-2 text-sm text-gray-700'>Ngày check-out</label>
+      <input
+        type='date'
+        className='w-full h-full outline-none px-4 rounded-e-xl border border-gray-500'
+        value={dateTo}
+        onChange={(e) => {
+          setDateTo(e.target.value);
+        }}
+      />
+    </div>
+  </div>
+  <div className='flex justify-center'>
+    <button
+      className='h-12 bg-blue-400 w-1/5 text-white text-xl rounded-xl mt-4'
+      onClick={getRoomList}
+    >
+      TÌM KIẾM
+    </button>
+  </div>
+</div>
+
       <div className='flex justify-center flex-wrap gap-5 mb-8 my-52'>
         {dateTo === '' || dateFrom === ''
           ? roomList.map((room, index) => {

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import { Link as ScrollLink } from 'react-scroll';
-import logoSomo from "../../assets/img/logo.png"; // Đường dẫn đúng với cấu trúc dự án của bạn
+import logoSomo from "../../assets/img/logo.png"; // Adjust the path according to your project structure
 
 export function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -28,14 +27,12 @@ export function Header() {
               <span className="absolute left-0 bottom-0 w-0 h-1 bg-green-600 transition-all duration-300 group-hover:w-full"></span>
             </li>
             <li className="relative group">
-              <ScrollLink
-                to="destaques"
-                smooth={true}
-                duration={500}
-                className="text-sm font-semibold text-gray-800 hover:text-green-600 transition duration-300 cursor-pointer"
+              <Link
+                to="/about-us"
+                className="text-sm font-semibold text-gray-800 hover:text-green-600 transition duration-300"
               >
                 GIỚI THIỆU
-              </ScrollLink>
+              </Link>
               <span className="absolute left-0 bottom-0 w-0 h-1 bg-green-600 transition-all duration-300 group-hover:w-full"></span>
             </li>
             <li className="relative group">

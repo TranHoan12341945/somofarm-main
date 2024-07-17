@@ -1,11 +1,10 @@
 import React from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import image1 from '../../assets/image-1.png'; // Cập nhật đường dẫn hình ảnh theo thư mục của bạn
-import image2 from '../../assets/image-2.jpg'; // Cập nhật đường dẫn hình ảnh theo thư mục của bạn
-import image3 from '../../assets/image-3.jpg'; // Cập nhật đường dẫn hình ảnh theo thư mục của bạn
-import image4 from '../../assets/image-4.jpg'; // Cập nhật đường dẫn hình ảnh theo thư mục của bạn
-
+import image1 from '../../assets/image-1.png';
+import image2 from '../../assets/image-2.jpg';
+import image3 from '../../assets/image-3.jpg';
+import image4 from '../../assets/image-4.jpg';
 
 const AboutUsPage = () => {
     return (
@@ -13,7 +12,7 @@ const AboutUsPage = () => {
         <Header />
         <div className="container max-w-6xl px-4 py-10 mx-auto">
           <div className="mb-10">
-            <img src={image1} alt="Somofarm Cuu Long" className="w-full rounded-lg" />
+            <img src={image1} alt="Somofarm Cuu Long" className="w-full rounded-lg transform transition duration-500 hover:scale-105 hover:shadow-lg" />
           </div>
           <section className="mb-10">
             <h2 className="mb-4 text-3xl font-bold" style={{ color: '#1d3260' }}>Về chúng tôi SOMOFARM CỬU LONG</h2>
@@ -38,7 +37,7 @@ const AboutUsPage = () => {
               hương mình. Bên cạnh ông Huy, Somofarm Cửu Long còn được vận hành bởi những người cộng sự đáng quý.
             </p>
             <div className="flex justify-center">
-              <img src={image2} alt="Thành viên sáng lập và ban điều hành" className="rounded-lg" />
+              <img src={image2} alt="Thành viên sáng lập và ban điều hành" className="rounded-lg transform transition duration-500 hover:scale-105 hover:shadow-lg" />
             </div>
           </section>
           <section className="mb-10">
@@ -57,7 +56,7 @@ const AboutUsPage = () => {
               truyền thống.
             </p>
             <div className="flex justify-center">
-              <img src={image3} alt="Sứ mệnh" className="rounded-lg" />
+              <img src={image3} alt="Sứ mệnh" className="rounded-lg transform transition duration-500 hover:scale-105 hover:shadow-lg" />
             </div>
           </section>
           <section className="mb-10">
@@ -68,12 +67,12 @@ const AboutUsPage = () => {
             </p>
           </section>
           <section>
-            <img src={image4} alt="Giá trị cốt lõi" className="rounded-lg" />
+            <img src={image4} alt="Giá trị cốt lõi" className="rounded-lg transform transition duration-500 hover:scale-105 hover:shadow-lg" />
           </section>
         </div>
         <Footer />
       </div>
     );
   };
-  
-  export default AboutUsPage;
+
+export default AboutUsPage;
