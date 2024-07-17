@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { axiosInstance } from '../../configs/axiosInstance';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const BookingPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -19,16 +20,21 @@ const BookingPage = () => {
   const handleBooking = async (e) => {
     e.preventDefault();
 
-    const postInfo = await axiosInstance.post('/bookings', {
-      firstName,
-      lastName,
-      email,
-      phone: phoneNumber,
-      roomID,
-      dateIn,
-      dateOut,
-    });
-    console.log(postInfo);
+    try {
+      const postInfo = await axiosInstance.post('/bookings', {
+        firstName,
+        lastName,
+        email,
+        phone: phoneNumber,
+        roomID,
+        dateIn,
+        dateOut,
+      });
+      console.log(postInfo);
+      navigate('/booking-success');
+    } catch (error) {
+      console.error("Error booking the room:", error);
+    }
   };
 
   return (
@@ -225,8 +231,6 @@ const BookingPage = () => {
               </form>
             </div>
           </div>
-
-          
         </div>
       </div>
       <Footer />

@@ -20,6 +20,7 @@ import SearchRoomPage from './pages/SearchRoomPage/SearchRoomPage';
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
 import BookingPage from './pages/BookingPage/BookingPage';
 import PaymentPage from './pages/PaymentPage/PaymentPage.jsx';
+import BookingSuccessPage from './pages/BookingSuccessPage/BookingSuccessPage.jsx';
 
 export function App() {
   return (
@@ -58,6 +59,7 @@ export function App() {
       <Route path='/about-us' element={<AboutUsPage />} />
       <Route path='/booking' element={<BookingPage />} />
       <Route path='/payment' element={<PaymentPage />} />
+      <Route path='/booking-success' element={<BookingSuccessPage />} />
     </Routes>
   );
 }
