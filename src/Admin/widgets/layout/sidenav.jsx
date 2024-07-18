@@ -2,15 +2,14 @@ import PropTypes from "prop-types";
 import { Link, NavLink } from "react-router-dom";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
-  Avatar,
   Button,
   IconButton,
   Typography,
 } from "@material-tailwind/react";
 import { useMaterialTailwindController, setOpenSidenav } from "../../context";
-import logoSomo from "../../../assets/img/logo.png"; // Ensure this path is correct
+import logoSomo from "../../../assets/img/logo.png";
 
-export function Sidenav({ brandImg = logoSomo, brandName = "Somofarm", routes }) {
+export function Sidenav({ brandName = "Somofarm", routes }) {
   const [controller, dispatch] = useMaterialTailwindController();
   const { sidenavColor, sidenavType, openSidenav } = controller;
   const sidenavTypes = {
@@ -32,15 +31,15 @@ export function Sidenav({ brandImg = logoSomo, brandName = "Somofarm", routes })
       } fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0 border border-blue-gray-100`}
     >
       <div className="relative">
-        <Link to="/" className="px-8 py-6 text-center">
-          <img src={brandImg} alt="logo" className="w-10 h-10 mx-auto mb-4"/>
-          <Typography
-            variant="h6"
-            color={sidenavType === "dark" ? "white" : "blue-gray"}
-          >
-            {brandName}
-          </Typography>
-        </Link>
+      <Link to="/" className="flex flex-col items-center px-8 py-6 text-center">
+  <img src={logoSomo} alt="Somofarm Logo" className="w-48 h-auto mb-4" />
+  <Typography
+    variant="h6"
+    color={sidenavType === "dark" ? "white" : "blue-gray"}
+  >
+    {brandName}
+  </Typography>
+</Link>
         <IconButton
           variant="text"
           color="white"
@@ -101,7 +100,6 @@ export function Sidenav({ brandImg = logoSomo, brandName = "Somofarm", routes })
 }
 
 Sidenav.propTypes = {
-  brandImg: PropTypes.string,
   brandName: PropTypes.string,
   routes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
