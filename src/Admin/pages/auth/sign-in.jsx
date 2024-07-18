@@ -13,7 +13,7 @@ export function SignIn() {
     e.preventDefault();
     // Logic xử lý đăng nhập sẽ đặt ở đây
     // Vì hiện tại chỉ demo frontend, nên chúng ta sẽ chuyển hướng luôn
-    navigate('/');
+    navigate('/admin');
   };
 
   return (
